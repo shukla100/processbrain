@@ -1,0 +1,71 @@
+{
+  "name": "business-account-onboarding",
+  "owner": "Priya Anand",
+  "inputs": [
+    "Signed business banking application",
+    "Business formation documents (EIN, articles of incorporation)",
+    "Beneficial ownership disclosure"
+  ],
+  "outputs": [
+    "Approved active business account",
+    "Issued API credentials",
+    "Assigned customer success contact"
+  ],
+  "steps": [
+    {
+      "name": "Application intake",
+      "owner": "Priya Anand",
+      "reason": "Sales collects the signed application and formation documents upfront so Compliance never has to chase the client for basic paperwork mid-review.",
+      "steps": [
+        {
+          "name": "Collect formation documents",
+          "owner": "Priya Anand",
+          "reason": "EIN and articles of incorporation are required before KYB can start — without them Compliance can't verify the business is real."
+        }
+      ]
+    },
+    {
+      "name": "KYB/KYC verification",
+      "owner": "Marcus Whitfield",
+      "reason": "Required under BSA/AML regulations before any business account can be opened — this is a legal requirement, not a policy choice.",
+      "steps": [
+        {
+          "name": "Verify beneficial ownership",
+          "owner": "Marcus Whitfield",
+          "reason": "Regulators require identifying the individuals who ultimately own or control the business before an account can be opened."
+        },
+        {
+          "name": "Screen against OFAC/sanctions lists",
+          "owner": "Marcus Whitfield",
+          "reason": "Opening an account for a sanctioned entity exposes the company and the partner bank to regulatory penalties."
+        }
+      ]
+    },
+    {
+      "name": "Risk review and approval decision",
+      "owner": "Marcus Whitfield",
+      "reason": "Higher-risk industries (crypto-adjacent, money services businesses) or flagged screening results require a manual decision beyond what the automated KYB tooling can clear."
+    },
+    {
+      "name": "Treasury account provisioning",
+      "owner": "Elena Castillo",
+      "reason": "The account must be created in the internal ledger and linked to the partner bank before any funds can move — this cannot happen before compliance approval, no exceptions."
+    },
+    {
+      "name": "Platform access and API key issuance",
+      "owner": "Sam Okafor",
+      "reason": "Most startup clients integrate Tabby into their own finance stack, so API credentials need to be issued as soon as the account is live."
+    },
+    {
+      "name": "Customer success handoff",
+      "owner": "Jordan Lee",
+      "reason": "Tribal knowledge gap: the client needs a single ongoing point of contact, but today there is no system trigger for this — Jordan often learns the account is live informally rather than through a defined handoff."
+    }
+  ],
+  "upstream": [
+    "partnership-lead-qualification"
+  ],
+  "downstream": [
+    "treasury-cash-management-setup"
+  ]
+}

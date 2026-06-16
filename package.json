@@ -1,0 +1,16 @@
+{
+  "name": "processbrain",
+  "version": "1.0.0",
+  "description": "A thought-partner tool for documenting and mapping how a company operates, built on Claude Code.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.103.0"
+  }
+}
