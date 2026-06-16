@@ -9,6 +9,11 @@ Processes analyzed: business-account-onboarding
 
 ## Business Account Onboarding
 
+### Process gaps
+
+- Step "Risk review and approval decision" looks like an approval/review checkpoint, but no SLA or turnaround expectation is documented in its reason — what happens when it stalls?
+- Step "Customer success handoff" admits a gap in its own documented reason: "Tribal knowledge gap: the client needs a single ongoing point of contact, but today there is no system trigger for this — Jordan often learns the account is live informally rather than through a defined handoff."
+
 ### Documentation gaps
 
 - Upstream process "partnership-lead-qualification" is referenced but not documented in ProcessBrain yet.
@@ -24,4 +29,4 @@ Processes analyzed: business-account-onboarding
 
 ---
 
-_3 issue(s) found across 1 process(es). Run `node index.js report` to refresh._
+_5 issue(s) found across 1 process(es). Run `node index.js report` to refresh._

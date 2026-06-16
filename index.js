@@ -1,6 +1,7 @@
 const { writeTemplate, listProcesses } = require('./lib/parser');
 const { buildGraph } = require('./lib/graph');
 const { buildReport } = require('./lib/renderer');
+const { buildDashboardData } = require('./lib/dashboard');
 
 const command = process.argv[2];
 const argument = process.argv[3];
@@ -36,6 +37,8 @@ if (command === 'new') {
   graph();
 } else if (command === 'report') {
   buildReport();
+} else if (command === 'dashboard') {
+  buildDashboardData();
 } else {
   console.log('ProcessBrain CLI');
   console.log('');
@@ -43,4 +46,5 @@ if (command === 'new') {
   console.log('  node index.js new <name>   Create a new process');
   console.log('  node index.js graph        Rebuild the dependency graph');
   console.log('  node index.js report       Run static gap analysis');
+  console.log('  node index.js dashboard    Regenerate docs/data/dashboard.json for the portfolio dashboard');
 }
