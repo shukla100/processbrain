@@ -61,14 +61,51 @@ against the fictional process above, not hand-written.
 
 See `PROCESS_BRAIN.md` for full usage instructions and the process schema.
 
-## Try it
+## Using ProcessBrain
+
+### As a portfolio demo (this repo)
+
+This GitHub repo is frozen with Tabby Finance data so it's safe to view and share publicly.
 
 ```
-node index.js report   # regenerate gap-report.md from processes/
-node index.js graph    # regenerate graph.html — open in a browser
-node index.js new <name>   # scaffold a new blank process
+node index.js report          # regenerate gap-report.md from processes/
+node index.js graph           # regenerate graph.html — open in a browser
+npm start                     # serve dashboard on localhost:8765
 ```
 
-Open this folder in Claude Code to use ProcessBrain's conversational mode —
-try asking it to analyze `inbox/sales/` from scratch, or to surface gaps across
-the documented process.
+### For real company work (local setup)
+
+To use ProcessBrain with your **real company data**:
+
+1. Clone this repo locally to a working directory:
+   ```bash
+   git clone https://github.com/shukla100/processbrain.git processbrain-work
+   cd processbrain-work
+   ```
+
+2. Clear the fictional data and bring your real company knowledge:
+   ```bash
+   rm -rf inbox/* processes/*/
+   # Copy your actual PM notes into inbox/<department>/
+   # ProcessBrain will guide you through documenting them
+   ```
+
+3. Open in Claude Code and start discovering processes:
+   - Ask: "Analyze inbox/sales/ and propose the processes you see"
+   - Answer the questions it asks to fill in owners, triggers, reasons
+   - It writes `process.json` and `process.md` automatically
+   - Run `node index.js dashboard` after each process to see live updates
+
+4. Access your analysis locally:
+   ```bash
+   node index.js report              # gap-report.md
+   node index.js graph               # graph.html (opens in browser)
+   npm start                         # dashboard on localhost:8765
+   ```
+
+**Important:** Your local `inbox/` and `processes/` contain real company data. 
+Never push them to a public repo. The GitHub version stays as the fictional 
+portfolio demo; your local copy is your real working tool.
+
+See `CLAUDE.md` for the full conversational workflow and `PROCESS_BRAIN.md` for 
+the schema.
