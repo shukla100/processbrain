@@ -1,0 +1,84 @@
+{
+  "name": "feature-launch-coordination",
+  "owner": "Priya Anand",
+  "inputs": [
+    "Approved feature spec and design mockups",
+    "Engineering capacity and roadmap slot",
+    "Security and compliance review sign-off"
+  ],
+  "outputs": [
+    "Feature shipped and live in production",
+    "Post-launch metrics baseline established",
+    "Customer communication sent"
+  ],
+  "steps": [
+    {
+      "name": "Feature specification and design handoff",
+      "owner": "Priya Anand",
+      "reason": "PM translates customer needs and product strategy into a spec that Engineering can build from. Design and PM iterate until Engineering signals readiness to plan.",
+      "steps": [
+        {
+          "name": "Validate customer need and market fit",
+          "owner": "Priya Anand",
+          "reason": "Before investing engineering time, confirm this solves a real problem and aligns with roadmap. This prevents wasted engineering cycles on features nobody needs."
+        },
+        {
+          "name": "Create detailed feature spec with success metrics",
+          "owner": "Priya Anand",
+          "reason": "Specs define what done looks like. Without this, engineering builds to their interpretation and shipping often reveals misalignment."
+        }
+      ]
+    },
+    {
+      "name": "Engineering capacity planning and estimation",
+      "owner": "Sam Okafor",
+      "reason": "Engineering lead estimates effort, identifies dependencies, and commits to timeline. This is the moment the team becomes accountable for shipping.",
+      "steps": [
+        {
+          "name": "Break feature into tasks and identify tech dependencies",
+          "owner": "Sam Okafor",
+          "reason": "Large features often depend on other in-flight work or infrastructure changes. Missing dependencies late cause delays."
+        },
+        {
+          "name": "Estimate total engineering effort and define milestone dates",
+          "owner": "Sam Okafor",
+          "reason": "Estimation creates the contract between PM and engineering on what ships and when. Vague timelines cause constant scope creep."
+        }
+      ]
+    },
+    {
+      "name": "Security and compliance review",
+      "owner": "Marcus Whitfield",
+      "reason": "Security team gates features that touch auth, data, or payments. This is non-negotiable but often causes shipping delays if not started early."
+    },
+    {
+      "name": "Development and QA",
+      "owner": "Sam Okafor",
+      "reason": "Engineering executes the spec. QA validates it matches the spec before shipping. This is where most unknowns surface."
+    },
+    {
+      "name": "Launch readiness review and approval decision",
+      "owner": "Priya Anand",
+      "reason": "PM makes the final call on whether to ship. Shared responsibility with engineering (if something breaks) and product (if it doesn't move the needle)."
+    },
+    {
+      "name": "Production deployment and monitoring",
+      "owner": "Sam Okafor",
+      "reason": "Engineering deploys to production and monitors for errors. If something breaks, they roll back or hotfix. PM is on standby to communicate impact."
+    },
+    {
+      "name": "Post-launch customer communication and feedback collection",
+      "owner": "Jordan Lee",
+      "reason": "Customer success lets customers know the feature is live and collects early feedback. This informs whether the feature solved what PM intended."
+    },
+    {
+      "name": "Post-launch metrics and learning",
+      "owner": "Priya Anand",
+      "reason": "Tribal knowledge gap: most teams never review post-launch metrics or document what went well and what broke. This prevents learning across launches."
+    }
+  ],
+  "upstream": [
+    "business-account-onboarding"
+  ],
+  "downstream": []
+}

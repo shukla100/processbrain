@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-16",
+  "generated": "2026-06-17",
   "departments": [
     "Sales / Partnerships",
     "Compliance",
@@ -79,6 +79,90 @@
       "downstream": [
         "treasury-cash-management-setup"
       ]
+    },
+    {
+      "name": "feature-launch-coordination",
+      "owner": "Priya Anand",
+      "inputs": [
+        "Approved feature spec and design mockups",
+        "Engineering capacity and roadmap slot",
+        "Security and compliance review sign-off"
+      ],
+      "outputs": [
+        "Feature shipped and live in production",
+        "Post-launch metrics baseline established",
+        "Customer communication sent"
+      ],
+      "steps": [
+        {
+          "name": "Feature specification and design handoff",
+          "owner": "Priya Anand",
+          "reason": "PM translates customer needs and product strategy into a spec that Engineering can build from. Design and PM iterate until Engineering signals readiness to plan.",
+          "steps": [
+            {
+              "name": "Validate customer need and market fit",
+              "owner": "Priya Anand",
+              "reason": "Before investing engineering time, confirm this solves a real problem and aligns with roadmap. This prevents wasted engineering cycles on features nobody needs."
+            },
+            {
+              "name": "Create detailed feature spec with success metrics",
+              "owner": "Priya Anand",
+              "reason": "Specs define what done looks like. Without this, engineering builds to their interpretation and shipping often reveals misalignment."
+            }
+          ]
+        },
+        {
+          "name": "Engineering capacity planning and estimation",
+          "owner": "Sam Okafor",
+          "reason": "Engineering lead estimates effort, identifies dependencies, and commits to timeline. This is the moment the team becomes accountable for shipping.",
+          "steps": [
+            {
+              "name": "Break feature into tasks and identify tech dependencies",
+              "owner": "Sam Okafor",
+              "reason": "Large features often depend on other in-flight work or infrastructure changes. Missing dependencies late cause delays."
+            },
+            {
+              "name": "Estimate total engineering effort and define milestone dates",
+              "owner": "Sam Okafor",
+              "reason": "Estimation creates the contract between PM and engineering on what ships and when. Vague timelines cause constant scope creep."
+            }
+          ]
+        },
+        {
+          "name": "Security and compliance review",
+          "owner": "Marcus Whitfield",
+          "reason": "Security team gates features that touch auth, data, or payments. This is non-negotiable but often causes shipping delays if not started early."
+        },
+        {
+          "name": "Development and QA",
+          "owner": "Sam Okafor",
+          "reason": "Engineering executes the spec. QA validates it matches the spec before shipping. This is where most unknowns surface."
+        },
+        {
+          "name": "Launch readiness review and approval decision",
+          "owner": "Priya Anand",
+          "reason": "PM makes the final call on whether to ship. Shared responsibility with engineering (if something breaks) and product (if it doesn't move the needle)."
+        },
+        {
+          "name": "Production deployment and monitoring",
+          "owner": "Sam Okafor",
+          "reason": "Engineering deploys to production and monitors for errors. If something breaks, they roll back or hotfix. PM is on standby to communicate impact."
+        },
+        {
+          "name": "Post-launch customer communication and feedback collection",
+          "owner": "Jordan Lee",
+          "reason": "Customer success lets customers know the feature is live and collects early feedback. This informs whether the feature solved what PM intended."
+        },
+        {
+          "name": "Post-launch metrics and learning",
+          "owner": "Priya Anand",
+          "reason": "Tribal knowledge gap: most teams never review post-launch metrics or document what went well and what broke. This prevents learning across launches."
+        }
+      ],
+      "upstream": [
+        "business-account-onboarding"
+      ],
+      "downstream": []
     }
   ],
   "gapsByProcess": {
@@ -91,20 +175,29 @@
         "Upstream process \"partnership-lead-qualification\" is referenced but not documented in ProcessBrain yet.",
         "Downstream process \"treasury-cash-management-setup\" is referenced but not documented in ProcessBrain yet."
       ]
+    },
+    "feature-launch-coordination": {
+      "Process gaps": [
+        "Step \"Security and compliance review\" looks like an approval/review checkpoint, but no SLA or turnaround expectation is documented in its reason — what happens when it stalls?",
+        "Step \"Launch readiness review and approval decision\" looks like an approval/review checkpoint, but no SLA or turnaround expectation is documented in its reason — what happens when it stalls?",
+        "Step \"Post-launch metrics and learning\" admits a gap in its own documented reason: \"Tribal knowledge gap: most teams never review post-launch metrics or document what went well and what broke. This prevents learning across launches.\""
+      ]
     }
   },
   "crossProcessGaps": {
     "Overloaded owners": [
-      "\"Marcus Whitfield\" owns 4 step(s) across 1 process(es): \"KYB/KYC verification\" (business-account-onboarding), \"KYB/KYC verification → Verify beneficial ownership\" (business-account-onboarding), \"KYB/KYC verification → Screen against OFAC/sanctions lists\" (business-account-onboarding), \"Risk review and approval decision\" (business-account-onboarding). Single point of failure risk."
+      "\"Priya Anand\" owns 7 step(s) across 2 process(es): \"Application intake\" (business-account-onboarding), \"Application intake → Collect formation documents\" (business-account-onboarding), \"Feature specification and design handoff\" (feature-launch-coordination), \"Feature specification and design handoff → Validate customer need and market fit\" (feature-launch-coordination), \"Feature specification and design handoff → Create detailed feature spec with success metrics\" (feature-launch-coordination), \"Launch readiness review and approval decision\" (feature-launch-coordination), \"Post-launch metrics and learning\" (feature-launch-coordination). Single point of failure risk.",
+      "\"Marcus Whitfield\" owns 5 step(s) across 2 process(es): \"KYB/KYC verification\" (business-account-onboarding), \"KYB/KYC verification → Verify beneficial ownership\" (business-account-onboarding), \"KYB/KYC verification → Screen against OFAC/sanctions lists\" (business-account-onboarding), \"Risk review and approval decision\" (business-account-onboarding), \"Security and compliance review\" (feature-launch-coordination). Single point of failure risk.",
+      "\"Sam Okafor\" owns 6 step(s) across 2 process(es): \"Platform access and API key issuance\" (business-account-onboarding), \"Engineering capacity planning and estimation\" (feature-launch-coordination), \"Engineering capacity planning and estimation → Break feature into tasks and identify tech dependencies\" (feature-launch-coordination), \"Engineering capacity planning and estimation → Estimate total engineering effort and define milestone dates\" (feature-launch-coordination), \"Development and QA\" (feature-launch-coordination), \"Production deployment and monitoring\" (feature-launch-coordination). Single point of failure risk."
     ]
   },
-  "totalGapFindings": 5,
+  "totalGapFindings": 10,
   "ownerLoad": {
-    "Priya Anand": 2,
-    "Marcus Whitfield": 4,
+    "Priya Anand": 7,
+    "Marcus Whitfield": 5,
     "Elena Castillo": 1,
-    "Sam Okafor": 1,
-    "Jordan Lee": 1
+    "Sam Okafor": 6,
+    "Jordan Lee": 2
   },
   "insights": [
     {
